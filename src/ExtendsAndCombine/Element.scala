@@ -25,7 +25,19 @@ abstract class Element {
   //val height = contents.length
   //val width = if (height == 0) 0 else contents(0).length
 
-  def print : Unit = contents.foreach(println)
+  def show: Unit = contents.foreach(println)
+
+  //父类定义接受多态参数的函数 并组合子类进行返回
+  def above(that: Element): Element = new ArrayElement(this.contents ++ that.contents)
+
+  def beside(that: Element): Element = new ArrayElement(
+    for ((line1, line2) <- this.contents zip that.contents)
+    //yield 是将后面的变量保存到集合中 ,在for循环结束时作为返回值返回
+      yield line1 + line2
+  )
+
+  //final定义不可以重载/派生子类
+  final def author: String = "Andong"
 }
 
 class ArrayElement(conts: Array[String]) extends Element {
@@ -34,36 +46,65 @@ class ArrayElement(conts: Array[String]) extends Element {
 
   //scala 成员函数和成员变量同级别 并且不可同名 同名时会自动覆盖(重载)
   //val contents: Array[String] = conts
+
 }
 
 //还可以放置在定义时
-class ArrayElement2(val contents: Array[String]) extends Element {
-}
+//class ArrayElement2(val contents: Array[String]) extends Element {
+//}
 
 //继承 参数可传递 可重载(同名必须添加override标识)
 class LineElement(s: String) extends ArrayElement(Array(s)) {
   override def width = s.length
+
   override def height = 1
+
 }
 
 //重载放在定义时 并且增加一个变量
 class UniformElement(ch: Char,
                      override val width: Int,
                      override val height: Int) extends Element {
+
   private val line = ch.toString * width
 
   def contents = Array.fill(height)(line) //用后面的数值填充Array
+
+  //重载打印函数
+  override def show: Unit = {
+    for (i <- 0 to height) {
+      for (j <- 0 to width) {
+        if (i == height / 2 && j == width / 2) print("i'm UniformElement")
+        else print(ch)
+      }
+      println()
+    }
+  }
 }
 
+//定义工厂
+object ElementFactory {
+  def elem(contents: Array[String]): Element =
+    new ArrayElement(contents)
 
-object ElementDev{
+  def elem(chr: Char, width: Int, height: Int): Element =
+    new UniformElement(chr, width, height)
+
+  def elem(line: String): Element =
+    new LineElement(line)
+}
+
+object ElementDev {
   def main(args: Array[String]): Unit = {
-    val elements = new ArrayBuffer[Element]()
-    elements += new ArrayElement(Array("i'm the first","Array Element"))
-    elements += new ArrayElement2(Array("i'm the second","Array Element2"))
-    elements += new LineElement("i just have one line")
-    elements += new UniformElement('c',4,3)
 
-    elements.foreach(e => e.print)
+    val elements = new ArrayBuffer[Element]()
+    //多态
+    elements += ElementFactory.elem(Array("i'm the first", "Array Element"))
+    elements += ElementFactory.elem("i just have one line")
+    elements += ElementFactory.elem('c', 4, 3)
+    elements += ElementFactory.elem('*', 4, 3) above ElementFactory.elem("test above")
+    elements += ElementFactory.elem(Array("test", "beside")) beside ElementFactory.elem('t', 2, 3)
+    //动态绑定 调用
+    elements.foreach(e => e.show)
   }
 }
