@@ -1,6 +1,13 @@
 package ExtendsAndCombine
 
 import scala.collection.mutable.ArrayBuffer
+/**
+  * 隐含
+  * import java.lang._   //everything in the java.lang package
+  * import scala._       //everything in the scala package
+  * import Predef._      //everything in the Predef object
+  */
+
 
 /**
   * Created by AnDong on 2016/12/26.

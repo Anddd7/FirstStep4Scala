@@ -3,9 +3,19 @@ package ObjectAndClass
 /**
   * Created by AnDong on 2016/12/20.
   * 创建一个scala类,以分数形式n/d表示有理数
+  *
+  * 学习trait后对代码进行改写
+  * 对接口类方法依赖另一个方法的 ,可以使用胖接口设计
+  * 留下最核心的功能让实现者实现 其他的通过相互调用提前在接口中实现
+  * 例如实现<
+  * >= 也可以使用 !< 实现
+  *
+  * scala还额外提供了 Ordered Trait ,针对需要比较排序的类 ,只需要实现compare函数 ,就可以进行比较
   */
+
+
 //类定义时可以放置参数,相当于默认的构造函数,参数只能在函数内部进行使用(相当于private)
-class Rational(n: Int, d: Int) {
+class Rational(n: Int, d: Int) extends Ordered[Rational] {
 
   //使用require校验参数,不通过则抛出异常
   //抓取异常使用 try-catch-case
@@ -41,14 +51,12 @@ class Rational(n: Int, d: Int) {
     new Rational(number + denom * i, denom)
   }
 
-  //内部变量可直接使用,也可以this.number
-  def lessThan(that: Rational): Boolean = {
-    number * that.denom < denom * that.number
-  }
+  //使用Ordered Trait 实现compare函数 ,就可以使用各种比较符号
+  override def compare(that: Rational) = (this.number * that.denom) - (that.number * that.denom)
 
   //如果需要引用对象本事(比如返回自己),需要使用this
   def max(that: Rational): Rational = {
-    if (lessThan(that)) that
+    if (<(that)) that
     else this
   }
 
@@ -57,12 +65,11 @@ class Rational(n: Int, d: Int) {
     if (b == 0) a else gcd(b, a % b)
   }
 
-
 }
 
 object RationalApp {
   def main(args: Array[String]): Unit = {
-    println(new Rational(1, 0).toString)
+    //println(new Rational(1, 0).toString)
 
     val r1div2 = new Rational(6, 8)
     val r2div3 = new Rational(2, 3)
@@ -72,5 +79,6 @@ object RationalApp {
     val r5div16 = new Rational(5, 16)
     println((r5div16 + 3).toString)
 
+    if (r1div2 > r2div3) print("大于")
   }
 }
