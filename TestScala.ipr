@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactManager">
+    <artifact type="war" name="TestScala:war">
+      <output-path>$PROJECT_DIR$/target</output-path>
+      <root id="archive" name="FirstScala-Anddd.FirstScala.war">
+        <element id="artifact" artifact-name="TestScala:war exploded" />
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="TestScala:war exploded">
+      <output-path>$PROJECT_DIR$/target/FirstScala-Anddd.FirstScala</output-path>
+      <root id="root">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="TestScala" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="library" level="project" name="Maven: com.typesafe.akka:akka-actor_2.11:2.4.16" />
+            <element id="library" level="project" name="Maven: org.scala-lang:scala-library:2.11.8" />
+            <element id="library" level="project" name="Maven: com.typesafe:config:1.3.0" />
+            <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-java8-compat_2.11:0.7.0" />
+          </element>
+        </element>
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/target/FirstScala-Anddd.FirstScala/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="javaee-facet-resources" facet="TestScala/web/Web" />
+      </root>
+    </artifact>
+  </component>
   <component name="CompilerConfiguration">
     <resourceExtensions />
     <wildcardResourcePatterns>
@@ -17,11 +45,27 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="TestScala" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TestScala" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="JUnitGeneratorProjectSettings">
     <option name="listOverloadedMethodsBy" value="paramClass" />
@@ -34,11 +78,83 @@
       </map>
     </option>
   </component>
+  <component name="MarkdownNavigator.ProfileManager" default="" />
+  <component name="MarkdownProjectSettings">
+    <PreviewSettings splitEditorLayout="SPLIT" splitEditorPreview="PREVIEW" useGrayscaleRendering="false" zoomFactor="1.25" maxImageWidth="0" showGitHubPageIfSynced="false" allowBrowsingInPreview="false" synchronizePreviewPosition="true" highlightPreviewType="NONE" highlightFadeOut="5" highlightOnTyping="true" synchronizeSourcePosition="true">
+      <PanelProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.panel" providerName="Default - Swing" />
+      </PanelProvider>
+    </PreviewSettings>
+    <ParserSettings>
+      <PegdownExtensions>
+        <option name="ABBREVIATIONS" value="false" />
+        <option name="ANCHORLINKS" value="true" />
+        <option name="ATXHEADERSPACE" value="true" />
+        <option name="AUTOLINKS" value="true" />
+        <option name="DEFINITIONS" value="false" />
+        <option name="FENCED_CODE_BLOCKS" value="true" />
+        <option name="FOOTNOTES" value="false" />
+        <option name="FORCELISTITEMPARA" value="false" />
+        <option name="HARDWRAPS" value="false" />
+        <option name="QUOTES" value="false" />
+        <option name="RELAXEDHRULES" value="true" />
+        <option name="SMARTS" value="false" />
+        <option name="STRIKETHROUGH" value="true" />
+        <option name="SUPPRESS_HTML_BLOCKS" value="false" />
+        <option name="SUPPRESS_INLINE_HTML" value="false" />
+        <option name="TABLES" value="true" />
+        <option name="TASKLISTITEMS" value="true" />
+        <option name="TOC" value="false" />
+        <option name="TRACE_PARSER" value="false" />
+        <option name="WIKILINKS" value="true" />
+      </PegdownExtensions>
+      <ParserOptions>
+        <option name="COMMONMARK_LISTS" value="false" />
+        <option name="DUMMY" value="false" />
+        <option name="EMOJI_SHORTCUTS" value="true" />
+        <option name="FLEXMARK_FRONT_MATTER" value="false" />
+        <option name="GFM_TABLE_RENDERING" value="true" />
+        <option name="GITBOOK_URL_ENCODING" value="false" />
+        <option name="GITHUB_EMOJI_URL" value="false" />
+        <option name="GITHUB_LISTS" value="true" />
+        <option name="GITHUB_WIKI_LINKS" value="true" />
+        <option name="JEKYLL_FRONT_MATTER" value="false" />
+        <option name="SIM_TOC_BLANK_LINE_SPACER" value="true" />
+      </ParserOptions>
+    </ParserSettings>
+    <HtmlSettings headerTopEnabled="false" headerBottomEnabled="false" bodyTopEnabled="false" bodyBottomEnabled="false" embedUrlContent="false" addPageHeader="true">
+      <GeneratorProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.generator" providerName="Default Swing HTML Generator" />
+      </GeneratorProvider>
+      <headerTop />
+      <headerBottom />
+      <bodyTop />
+      <bodyBottom />
+    </HtmlSettings>
+    <CssSettings previewScheme="UI_SCHEME" cssUri="" isCssUriEnabled="false" isCssTextEnabled="false" isDynamicPageWidth="true">
+      <StylesheetProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.css" providerName="Default Swing Stylesheet" />
+      </StylesheetProvider>
+      <ScriptProviders />
+      <cssText />
+    </CssSettings>
+    <HtmlExportSettings updateOnSave="false" parentDir="$ProjectFileDir$" targetDir="$ProjectFileDir$" cssDir="" scriptDir="" plainHtml="false" imageDir="" copyLinkedImages="false" imageUniquifyType="0" targetExt="" useTargetExt="false" noCssNoScripts="false" linkToExportedHtml="true" exportOnSettingsChange="true" regenerateOnProjectOpen="false" />
+    <LinkMapSettings>
+      <textMaps />
+    </LinkMapSettings>
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
     </option>
   </component>
   <component name="Palette2">
@@ -274,6 +390,52 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="Maven: com.typesafe.akka:akka-actor_2.11:2.4.16">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.11/2.4.16/akka-actor_2.11-2.4.16.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.11/2.4.16/akka-actor_2.11-2.4.16-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.11/2.4.16/akka-actor_2.11-2.4.16-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.typesafe:config:1.3.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/config/1.3.0/config-1.3.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/config/1.3.0/config-1.3.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/typesafe/config/1.3.0/config-1.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.scala-lang.modules:scala-java8-compat_2.11:0.7.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/modules/scala-java8-compat_2.11/0.7.0/scala-java8-compat_2.11-0.7.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/modules/scala-java8-compat_2.11/0.7.0/scala-java8-compat_2.11-0.7.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/modules/scala-java8-compat_2.11/0.7.0/scala-java8-compat_2.11-0.7.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.scala-lang:scala-library:2.11.8">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8-sources.jar!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="masterDetails">
     <states>

@@ -1,7 +1,6 @@
-import java.io.{File, PrintWriter}
+package FirstInShiyanlou
 
 import scala.collection.mutable.ArrayBuffer
-import scala.io.{Source, StdIn}
 
 /**
   * Created by AnDong on 2016/12/14.

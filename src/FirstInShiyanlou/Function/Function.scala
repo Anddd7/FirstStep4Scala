@@ -1,4 +1,4 @@
-package Function
+package FirstInShiyanlou.Function
 
 import scala.io.Source
 

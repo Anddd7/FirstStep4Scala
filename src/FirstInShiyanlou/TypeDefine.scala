@@ -1,3 +1,5 @@
+package FirstInShiyanlou
+
 /**
   * Created by AnDong on 2016/12/16.
   * scala 数据类型
