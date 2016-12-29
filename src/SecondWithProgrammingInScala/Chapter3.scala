@@ -1,6 +1,4 @@
-package SecondWithProgrammingInScala.Chapter3
-
-import java.io.{File, PrintWriter}
+package SecondWithProgrammingInScala
 
 import scala.collection.mutable.ListBuffer
 

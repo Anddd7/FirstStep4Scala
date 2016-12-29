@@ -1,5 +1,4 @@
-package SecondWithProgrammingInScala.Chapter2
-
+package SecondWithProgrammingInScala
 
 /**
   * 使用scala解释器 类似于脚本编程

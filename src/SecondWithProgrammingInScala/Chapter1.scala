@@ -1,4 +1,4 @@
-package SecondWithProgrammingInScala.Chapter1
+package SecondWithProgrammingInScala
 
 /**
   * Scala名称来自于scalable(可伸缩的) language ,它的设计目的就是为了方便使用者的扩展(如自己构造的if(){}的语法糖函数)
