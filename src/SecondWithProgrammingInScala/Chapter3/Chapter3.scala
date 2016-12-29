@@ -1,5 +1,7 @@
 package SecondWithProgrammingInScala.Chapter3
 
+import java.io.{File, PrintWriter}
+
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -198,12 +200,63 @@ object Part4 {
   val hashSet = HashSet("Tomatoes", "Chilies")
   print(hashSet + "Coriander")
 
+  //Map
+  import scala.collection.mutable.Map
 
+  val treasureMap = Map[Int, String]()
+  treasureMap += (1 -> "Go to island.")
+  treasureMap += (2 -> "Find big X on ground")
+  treasureMap += (3 -> "DIg.")
+  println(treasureMap(2))
+
+  val romanNumberal = Map(1 -> "Ⅰ", 2 -> "Ⅱ", 3 -> "Ⅲ", 4 -> "Ⅳ", 5 -> "Ⅴ")
+  println(romanNumberal(4))
+}
+
+/**
+  * 函数式风格 ,代码简洁逻辑清晰 ,不易出错
+  * 去掉var : 使用for/foreach代替while
+  * 减少副作用(判断返回结果是否是Unit) : 返回Unit ,那么函数的作用就不是 接受->返回 ,而是一些其他作用
+  *
+  * 权衡使用 ,val/var并不是绝对的
+  */
+object Part5 {
+}
+
+/**
+  * 简单的读取文件
+  */
+object Part6 {
+  //通过文件名读取 默认路径在 $projectPath/
+  def printFormatFile(fileName: String): Unit = {
+    import scala.io.Source
+
+    def widthOfLineNum(s: String) = s.length.toString.length
+
+    if (fileName.length > 0) {
+      //getLines获得的是iterator ,只能迭代一次 ,有多个循环时切换成List
+      val lines = Source.fromFile(fileName).getLines().toList
+
+      var maxWidthOfLine = 0
+      for (line <- lines)
+        maxWidthOfLine = maxWidthOfLine.max(widthOfLineNum(line))
+
+      for (line <- lines) {
+        val padding = " " * (maxWidthOfLine - widthOfLineNum(line))
+        println(padding + line.length + "|  " + line)
+      }
+    }
+    else
+      Console.err.println("Please enter filename")
+  }
 }
 
 object Chapter3App {
   def main(args: Array[String]): Unit = {
     //Part1
     //Part2
+    //Part3
+    //Part4
+    Part6.printFormatFile("README.md")
   }
 }
