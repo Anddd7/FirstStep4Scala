@@ -13,7 +13,7 @@ import scala.io.StdIn
 //是重用代码的一个基本单位 用于封装方法和变量
 //类似于Java的接口 可以继承多个trait(只能继承一个class) 可以有实现
 //=java的 interface+abstract class
-trait Animal {
+abstract class Animal {
   def bark: Unit
 }
 
