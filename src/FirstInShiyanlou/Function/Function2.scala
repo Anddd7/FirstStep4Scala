@@ -74,10 +74,7 @@ object Function2 {
   val result = onePlus(2) + twoPlus(3) //second调用函数快照
 
 
-  //复杂控制结构(柯里化 应用) : 把函数作为变量 函数互相影响 改变结构
-  //当一段逻辑需要重复多次 就可以进行重写 将变化的部分写成函数参数(有点像java的多态)
-  //定义一个函数 将传入的函数递归一次
-  def twice(op: Double => Double, x: Double) = op(op(x))
+
 
   //租赁模式 : 比如对文件操作结束必须要关闭 ,将这个操作屏蔽在内部 ,把正常功能租给外界使用(有点像AOP)
   def withPrintWriter(file: File)(op: PrintWriter => Unit) {
