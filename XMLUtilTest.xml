@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cctherm>
+    <description>
+      hot dog #5
+    </description>
+    <yearMade>
+      1952
+    </yearMade>
+    <dateObtained>
+      <base>
+          <year>2006</year>
+          <month>3</month>
+          <day>12</day>
+          03.12.2006
+        </base>
+    </dateObtained>
+    <bookPrice>
+      2199
+    </bookPrice>
+    <purchasePrice>
+      500
+    </purchasePrice>
+    <condition>
+      9
+    </condition>
+  </cctherm>

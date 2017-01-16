@@ -1,4 +1,4 @@
-package SecondWithProgrammingInScala
+package SecondWithProgrammingInScala.Chapter23
 
 /**
   * 重访For表达式
@@ -54,34 +54,34 @@ object ForApplication {
     *
     * 转义生成器
     * for(x<-expr1) yield expr2
-    *         expr1.map(x=>expr2)
+    * expr1.map(x=>expr2)
     *
     * 转义过滤
     * for(x<-expr1 if expr2) yield expr3
-    *         for(x<-expr1 filter(x=>expr2)) yield expr3
-    *         expr1 filter(x=>expr2) map(x=>expr3)
+    * for(x<-expr1 filter(x=>expr2)) yield expr3
+    * expr1 filter(x=>expr2) map(x=>expr3)
     *
     * 转义两个生成器
     * for(x<-expr1 ;y<-expr2) yield expr3
-    *         expr1 flatMap( x=> for(x<-expr2) yield expr3 )
-    *         expr1 flatMap( x=> expr2.map(x=>expr3) )
+    * expr1 flatMap( x=> for(x<-expr2) yield expr3 )
+    * expr1 flatMap( x=> expr2.map(x=>expr3) )
     *
     * 转义生成器中的模式
     * for((x,y) <- expr1 ) yield expr2
-    *         expr1 map( case (x,y) => expr2)
+    * expr1 map( case (x,y) => expr2)
     *
     * for("pat" <- expr1 ) yield expr2
-    *         expr1 filter(
-    *           case "pat" => true
-    *           case _ => false
-    *         ) map( case (x,y) => expr2)
+    * expr1 filter(
+    * case "pat" => true
+    * case _ => false
+    * ) map( case (x,y) => expr2)
     *
     * 转义定义
     * for(x<-expr1 ; y=expr2) yield expr3
-    *         for( (x,y)<-  for(x<-expr1) yield (x,expr2)) yield expr3
+    * for( (x,y)<-  for(x<-expr1) yield (x,expr2)) yield expr3
     *
     * 转义循环
     * for(x<-expr1) body
-    *   expr1 foreach (x => body)
+    * expr1 foreach (x => body)
     */
 }
