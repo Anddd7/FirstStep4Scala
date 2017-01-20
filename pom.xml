@@ -36,27 +36,63 @@
         </repository>
     </repositories>
 
+    <properties>
+        <scala.lib.version>2.12.1</scala.lib.version>
+        <scala.version>2.12</scala.version>
+        <akka.actor.version>2.4.16</akka.actor.version>
+        <scala.test>3.0.1</scala.test>
+        <junit>3.8.1</junit>
+    </properties>
+
     <dependencies>
+        <!--scala核心库-->
+        <!--scala设置SDK是下载一套编译相关的核心包 ,为了更替版本/查看源码和方便调试 ,-->
+        <!--使用maven引入组件包 ,SDK只做编译使用-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.lib.version}</version>
+        </dependency>
+
+        <!-- scala swing组件-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-swing</artifactId>
+            <version>[2.10,)</version>
+        </dependency>
+
         <!-- scala的actor部分转移到akka库 更全面-->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.11</artifactId>
-            <version>2.4.16</version>
+            <artifactId>akka-actor_${scala.version}</artifactId>
+            <version>${akka.actor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_${scala.version}</artifactId>
+            <version>${akka.actor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_${scala.version}</artifactId>
+            <version>${akka.actor.version}</version>
         </dependency>
 
         <!-- scala的test库-->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.12</artifactId>
-            <version>3.0.1</version>
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>${scala.test}</version>
         </dependency>
 
         <!-- junit-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            
+            <version>${junit}</version>
+
         </dependency>
     </dependencies>
 
