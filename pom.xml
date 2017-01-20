@@ -46,6 +46,11 @@
 
     <dependencies>
         <!--scala核心库-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library-all</artifactId>
+            <version>${scala.lib.version}</version>
+        </dependency>
         <!--scala设置SDK是下载一套编译相关的核心包 ,为了更替版本/查看源码和方便调试 ,-->
         <!--使用maven引入组件包 ,SDK只做编译使用-->
         <dependency>
@@ -56,9 +61,9 @@
 
         <!-- scala swing组件-->
         <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-swing</artifactId>
-            <version>[2.10,)</version>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-swing_${scala.version}</artifactId>
+            <version>2.0.0-M2</version>
         </dependency>
 
         <!-- scala的actor部分转移到akka库 更全面-->
